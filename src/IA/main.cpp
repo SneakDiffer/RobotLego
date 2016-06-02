@@ -19,16 +19,7 @@ int main()
 	nxt_sendmessage(4,reply2);  
 	printf(" tu as bien envoyé ! \n");
 	//Reception message : 
-	unsigned char * reply;
-	reply = NULL;
-	while(1)
-			{
-				nxt_readmessage(3, &reply);
-				if(reply != NULL)
-				{
-					break;
-				}
-			}
-	//nxt_readmessage(int mbox, unsigned char ** message)
+	int recu = recevoir();
+	printf(" %d \n",recu);
     return 0;
    }

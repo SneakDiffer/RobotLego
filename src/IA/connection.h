@@ -12,4 +12,4 @@
 
 int init_bluetooth(char *btAddress);
 int nxt_sendmessage(int mbox, char *message);
-int nxt_readmessage(int mbox, unsigned char ** message);
+int recevoir ();

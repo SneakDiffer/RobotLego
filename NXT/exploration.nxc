@@ -1,0 +1,148 @@
+//Constants differ for each robot!
+#define KP 500
+#define LEFT_MOTOR OUT_B
+#define RIGHT_MOTOR OUT_C
+#define WHEEL_DIAMETER 5.6
+#define TRACK_WIDTH 12.3
+#define POWER 80
+
+float power_left;
+float power_right;
+long ref_tick;
+
+// Resets and prepares for a maneuver
+// Called just before a maneuver starts
+void StartNav()
+{
+    ref_tick = CurrentTick();
+    ResetTachoCount(LEFT_MOTOR);
+    ResetTachoCount(RIGHT_MOTOR);
+    Yield();
+}
+
+// Adjusts motor outputs to correct error
+void UpdateNav()
+{ 
+    // P controller output
+    float controller_output = KP * (MotorTachoCount(LEFT_MOTOR) / power_left - MotorTachoCount(RIGHT_MOTOR) / power_right) / (CurrentTick() - ref_tick);
+    
+    // Motor power output
+    int output_left = power_left - controller_output * power_left;
+    output_left = output_left > 100 ? 100 : output_left < -100 ? -100 : output_left;  // Ensures -100 <= power <= 100
+    int output_right = power_right + controller_output * power_right;
+    output_right = output_right > 100 ? 100 : output_right < -100 ? -100 : output_right;  // Ensures -100 <= power <= 100
+    
+    // Apply motor power output
+    OnFwdEx(LEFT_MOTOR, output_left, RESET_NONE);
+    OnFwdEx(RIGHT_MOTOR, output_right, RESET_NONE);
+    Yield();
+}
+
+// Navigates the robot in a straight line through a certain distance (in centimeters)
+// distance >= 0 : Forward
+// distance < 0 : Reverse
+void MoveLine(float distance)
+{
+    power_left = power_right = distance < 0 ? -POWER : POWER;
+    
+    StartNav();
+    
+    int rots = distance * 360 / PI / WHEEL_DIAMETER;
+        
+    if (distance >= 0)
+        while(MotorTachoCount(LEFT_MOTOR) < rots)
+            UpdateNav();
+    else
+        while(MotorTachoCount(LEFT_MOTOR) > rots)
+            UpdateNav();
+            
+    Off(LEFT_MOTOR);
+    Off(RIGHT_MOTOR);
+}
+
+// Navigates the robot through an arc a specified radius (in centimeters)
+// subtending a specified angle (in centimeters)
+// radius >= 0 : To the right
+// radius < 0 : To the left
+// angle >= 0 : Forward arc
+// angle < 0 : Reverse arc
+void MoveArc(float radius, float angle)
+{
+    int sign_angle = angle < 0 ? -1 : angle > 0 ? 1 : 0;
+    
+    if (radius >= 0)
+    {
+        power_left = sign_angle * POWER;
+        power_right = sign_angle * POWER * (radius - TRACK_WIDTH / 2) / (radius + TRACK_WIDTH / 2);
+    }
+    else
+    {
+        power_right = sign_angle * POWER;
+        power_left = sign_angle * POWER * (abs(radius) - TRACK_WIDTH / 2) / (abs(radius) + TRACK_WIDTH / 2);
+    }
+
+    StartNav();
+    
+    int rots = (abs(radius) + TRACK_WIDTH / 2) * angle * (360 / PI / WHEEL_DIAMETER);
+
+    if (radius >= 0)
+        if (angle >= 0)
+            while(MotorTachoCount(LEFT_MOTOR) < rots)
+                UpdateNav();
+        else
+            while(MotorTachoCount(LEFT_MOTOR) > rots)
+                UpdateNav();
+    else
+        if (angle >= 0)
+            while(MotorTachoCount(RIGHT_MOTOR) < rots)
+                UpdateNav();
+        else
+            while(MotorTachoCount(RIGHT_MOTOR) > rots)
+                UpdateNav();
+   
+    Off(LEFT_MOTOR);
+    Off(RIGHT_MOTOR);
+}
+
+int reception_message (int mailbox)
+{
+    string msg="";
+    while(1)
+    {
+        ReceiveMessage(mailbox, true, msg);
+        if(strcmp(msg,"") != 0)
+        {
+            break;
+        }
+    }
+     return (StrToNum(msg));
+}
+
+void send_message (int message)
+{
+    //Envoie message, c'est 2 qu'il envoi ici ! 
+    SendRemoteNumber(0, 4, message);
+}
+
+task main() 
+{ 
+    //Avance de 50 cm 
+    //MoveLine(50);   
+
+    //On avance tant qu'il n'y a pas d'obstacle à 40cm 
+    SetSensorLowspeed(IN_4);
+    while(SensorUS(IN_4) > 40)
+    {
+        OnFwdReg(OUT_BC, 100, OUT_REGMODE_SYNC);
+    }
+    
+    //tourne gauche 
+    //MoveArc(0, (PI / 2) - 0.2);
+
+     //tourne droite
+    //MoveArc(0,  -1 * ((PI / 2) - 0.2)); 
+
+    //Demie-tour 
+   // MoveArc(0,  PI  - 0.34); 
+   
+}

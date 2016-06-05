@@ -9,7 +9,12 @@
 #include <bluetooth/bluetooth.h>
 #include <bluetooth/rfcomm.h>
 
-
+/*=================================================
+ *                 CONNECTION.H                   *
+ *           Authors: Defonte & Rolland           *
+ *------------------------------------------------*
+ * Fichier.h contenant les fonction bluetooth     *
+ *================================================*/
 int init_bluetooth(char *btAddress);
 int nxt_sendmessage(int mbox, char *message);
 int recevoir ();

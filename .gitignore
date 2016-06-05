@@ -1,0 +1,9 @@
+build/
+bin/
+obj/
+
+*.obj
+*pro.user
+
+Makefile
+makefile

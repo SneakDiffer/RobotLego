@@ -8,20 +8,12 @@
 #ifndef BOARD_H
 #define BOARD_H
 #include "case.h"
-#include <vector>
+#include "global.h"
 
-//Classe  Board
-class Board
-{
-public:
-    Board(int rows, int cols);
-    ~Board();
-    Case* getAt(int row, int col);
-
-private:
-    int b_Rows;
-    int b_Cols;
-    std::vector<Case*> b_Data;
+struct Board{
+    Case* labyrinthe[SIZE_X][SIZE_Y];
 };
 
 #endif // BOARD_H
+
+//CLASSE NON UTILISEE

@@ -7,13 +7,10 @@ LIBS += -lbluetooth
 
 SOURCES = \
           src/ia/connection.cpp \
-          src/ia/main.cpp \
-          src/ia/grid.cpp
+          src/ia/main.cpp
 
-HEADERS = src/ia/board.h \
-          src/ia/case.h \
+HEADERS = \
           src/ia/connection.h \
           src/ia/robot.h \
           src/ia/representation.h \
-          src/ia/global.h \
-          src/ia/grid.h
+          src/ia/global.h

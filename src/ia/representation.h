@@ -2,20 +2,30 @@
 #define REPRESENTATION_H
 
 #include "global.h"
-//Struct Cell
-struct Cell{
-    int dist; //Distance to other cell
-    int dir;    //Direction to take
-};
+#include <vector>
 
-//Struct Repr
-struct repr{
+struct repr {
 
-    //Matrice des murs
-    int wall[SIZE_X*SIZE_Y];
+        // wall representation
+        std::vector<int> wall;
 
-    //Matrice adj
-    Cell adjmatrix[SIZE_X*SIZE_Y][SIZE_X*SIZE_Y];
-};
+        // cell
+        struct cell {
+                int dir;
+                int dist;
+                cell() : dir(0), dist(-1) {}
+        };
+
+        // adjacency and direction matrix
+        struct adjmat_s {
+                std::vector<cell> mat;
+                adjmat_s(unsigned int w, unsigned h) : mat(w*w*h*h) {}
+        } adjmatrix;
+
+        // constructor
+        repr(unsigned int w, unsigned int h) : wall(w*h), adjmatrix(w,h) {}
+
+}; // end of repr
+
 
 #endif // REPRESENTATION_H

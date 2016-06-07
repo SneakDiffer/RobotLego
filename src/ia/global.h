@@ -13,8 +13,13 @@
 /*================*
  *    DEFINES
  * ===============*/
-#define SIZE_X 23
-#define SIZE_Y 11
+//#define SIZE_X 23
+//#define SIZE_Y 11
+namespace conf {
+    int SIZE_X;
+    int SIZE_Y;
+};
+
 
 //Enum DIRECTION
 enum Direction {

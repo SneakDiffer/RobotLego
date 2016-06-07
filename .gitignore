@@ -3,7 +3,7 @@ bin/
 obj/
 
 *.obj
-*pro.user
+*pro.user*
 
 Makefile
 makefile

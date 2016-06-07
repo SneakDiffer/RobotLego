@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "connection.h"
+#include "global.h"
+#include "representation.h"
 using namespace std;
 
 int main()

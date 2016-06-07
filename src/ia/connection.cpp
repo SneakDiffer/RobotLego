@@ -106,20 +106,20 @@ int recevoir ()
 {
 
 	unsigned char buf[9];
-    int nbytes = 8;
+    //int nbytes = 8;
 	int i = 0;
-	int len = 0;
+    int len = 0;
 	int chiffre = 0;
 
     while(1){
         do{
-        	len =read(nxtSocket, &buf[i], 1);
+            len =read(nxtSocket, &buf[i], 1);
            // printf("[%d]\n", buf[i]);
             //printf("number of bytes returned:  %d\n", i);
             i++;
         }while(i <= 10);
         i=0;
-        chiffre=(int)buf[6]; //ca envoie sur le bit 6 
+        //chiffre=(int)buf[6]; //ca envoie sur le bit 6
         printf("-------------%d\n", chiffre);
         break;
     }

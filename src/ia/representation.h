@@ -9,6 +9,8 @@ struct repr {
         // wall representation
         std::vector<int> wall;
 
+        //Visited
+        std::vector<bool>visited;
         // cell
         struct cell {
                 int dir;
@@ -23,7 +25,7 @@ struct repr {
         } adjmatrix;
 
         // constructor
-        repr(unsigned int w, unsigned int h) : wall(w*h), adjmatrix(w,h) {}
+        repr(unsigned int w, unsigned int h) : wall(w*h), visited(w*h,false),adjmatrix(w,h){}
 
 }; // end of repr
 

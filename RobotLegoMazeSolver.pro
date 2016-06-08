@@ -7,7 +7,9 @@ LIBS += -lbluetooth
 
 SOURCES = \
           src/ia/connection.cpp \
-          src/ia/main.cpp
+          src/ia/main.cpp \
+    src/ia/representation.cpp \
+    src/ia/global.cpp
 
 HEADERS = \
           src/ia/connection.h \

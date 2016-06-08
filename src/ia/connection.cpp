@@ -1,5 +1,4 @@
 #include "connection.h"
-
 int nxtSocket;
 int status;
 int max_message_size=80;

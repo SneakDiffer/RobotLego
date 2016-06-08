@@ -6,8 +6,8 @@
  *================================================*/
 
 
-#ifndef GLOBAL_H
-#define GLOBAL_H
+#ifndef GLOBAL_H_
+#define GLOBAL_H_
 
 
 /*================*
@@ -16,9 +16,9 @@
 //#define SIZE_X 23
 //#define SIZE_Y 11
 namespace conf {
-    int SIZE_X;
-    int SIZE_Y;
-};
+    extern int SIZE_X;
+    extern int SIZE_Y;
+}
 
 
 //Enum DIRECTION

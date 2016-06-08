@@ -2,8 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "connection.h"
-#include "global.h"
 #include "representation.h"
+#include "global.h"
 using namespace std;
 
 int main()
@@ -26,6 +26,7 @@ int main()
     int recu = recevoir();
     printf(" %d \n",recu);
   }
+ conf::SIZE_X = 5;
 
     return 0;
    }

@@ -13,7 +13,10 @@ SOURCES = \
     src/ia/connection.cpp \
     src/main.cpp \
     src/ui/qapp.cpp \
-    src/ui/walldrawer.cpp
+    src/ui/walldrawer.cpp \
+    src/ia/representation.cpp \
+    src/ia/global.cpp \
+    src/ia/backup.cpp
 
 HEADERS = \
     src/ia/connection.h \
@@ -21,7 +24,8 @@ HEADERS = \
     src/ia/representation.h \
     src/ia/global.h \
     src/ui/qapp.h \
-    src/ui/walldrawer.h
+    src/ui/walldrawer.h \
+    src/ia/backup.h
 
 FORMS += \
     src/ui/qapp.ui \

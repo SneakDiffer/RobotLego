@@ -5,5 +5,7 @@ obj/
 *.obj
 *pro.user*
 
+*.orig
+
 Makefile
 makefile

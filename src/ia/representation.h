@@ -2,7 +2,11 @@
 #define REPRESENTATION_H
 
 #include "global.h"
+#include "representation.h"
 #include <vector>
+
+
+std::vector<int> setupWall(int w, int h);
 
 struct repr {
 
@@ -26,7 +30,7 @@ struct repr {
         } adjmatrix;
 
         // constructor
-        repr(unsigned int w, unsigned int h) : wall(w*h), visited(w*h,false),adjmatrix(w,h){}
+        repr(unsigned int w, unsigned int h) : wall(setupWall(w,h)), visited(w*h,false),adjmatrix(w,h){}
 
 }; // end of repr
 

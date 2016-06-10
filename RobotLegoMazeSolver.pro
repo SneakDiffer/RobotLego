@@ -28,7 +28,7 @@ HEADERS = \
     src/ui/walldrawer.h \
     src/ia/backup.h \
     src/ia/astar.h
-937bc75b3a1393afaa9b1fdcbe6bd74a5a84
+
 
 FORMS += \
     src/ui/qapp.ui \

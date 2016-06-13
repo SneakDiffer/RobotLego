@@ -576,6 +576,7 @@ void find_path_ricochet (int x_dep, int y_dep, int x_goal, int y_goal, int longu
 }
 
 
+//ATTENTION !!! PRENDRE EN COMPTE QUE CERTAINS MURS NE SONT PAS VISITE !!!!
 
 void find_path_not_ricochet (int x_dep, int y_dep, int x_goal, int y_goal, repr reper)
 {

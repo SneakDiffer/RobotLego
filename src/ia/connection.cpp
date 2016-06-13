@@ -1,30 +1,87 @@
 #include "connection.h"
-int nxtSocket;
+int ROBOT_1;
+int ROBOT_2;
+int ROBOT_3;
+
 int status;
 int max_message_size=80;
 
-int init_bluetooth(char *btAddress)     {
+int init_bluetooth(char *btAddress, int robot)     {
 	struct sockaddr_rc addr={0};
 
-	// Allocate a socket
-	nxtSocket = socket(AF_BLUETOOTH, SOCK_STREAM, BTPROTO_RFCOMM);
-	// Set what type and who to connect to
-	addr.rc_family = AF_BLUETOOTH;
-	addr.rc_channel = (uint8_t) 1;
-	str2ba(btAddress, &addr.rc_bdaddr);
-	// Connect to the NXT
-	status = connect(nxtSocket, (struct sockaddr
-	*
-	)&addr, sizeof(addr) );
-	if (status < 0) {
-	perror("Error connecting Bluetooth");
-	return status;
-	}
+    switch(robot)
+    {
+        case 1:
+            ROBOT_1 = socket(AF_BLUETOOTH, SOCK_STREAM, BTPROTO_RFCOMM);
+            // Set what type and who to connect to
+            addr.rc_family = AF_BLUETOOTH;
+            addr.rc_channel = (uint8_t) 1;
+            str2ba(btAddress, &addr.rc_bdaddr);
+            // Connect to the NXT
+            status = connect(ROBOT_1, (struct sockaddr
+            *
+            )&addr, sizeof(addr) );
+            if (status < 0) {
+            perror("Error connecting Bluetooth");
+            return status;
+            }
+            break;
+        case 2:
+            ROBOT_2 = socket(AF_BLUETOOTH, SOCK_STREAM, BTPROTO_RFCOMM);
+            // Set what type and who to connect to
+            addr.rc_family = AF_BLUETOOTH;
+            addr.rc_channel = (uint8_t) 1;
+            str2ba(btAddress, &addr.rc_bdaddr);
+            // Connect to the NXT
+            status = connect(ROBOT_2, (struct sockaddr
+            *
+            )&addr, sizeof(addr) );
+            if (status < 0) {
+            perror("Error connecting Bluetooth");
+            return status;
+            }
+            break;
+        case 3:
+            ROBOT_3 = socket(AF_BLUETOOTH, SOCK_STREAM, BTPROTO_RFCOMM);
+            // Set what type and who to connect to
+            addr.rc_family = AF_BLUETOOTH;
+            addr.rc_channel = (uint8_t) 1;
+            str2ba(btAddress, &addr.rc_bdaddr);
+            // Connect to the NXT
+            status = connect(ROBOT_3, (struct sockaddr
+            *
+            )&addr, sizeof(addr) );
+            if (status < 0) {
+            perror("Error connecting Bluetooth");
+            return status;
+            }
+            break;
+    }
 	return 0;
 }
 
+int send_direction (int robot, int direction)
+{
+    char *msg =(char *) malloc (sizeof(int));
 
-int nxt_sendmessage(int mbox, char *message)    {
+    switch(robot)
+    {
+        case 1:
+            sprintf(msg,"%d",direction);
+            nxt_sendmessage(7,msg,ROBOT_1);
+            break;
+        case 2:
+            sprintf(msg,"%d",direction);
+            nxt_sendmessage(7,msg,ROBOT_2);
+            break;
+        case 3:
+            sprintf(msg,"%d",direction);
+            nxt_sendmessage(7,msg,ROBOT_3);
+            break;
+    }
+}
+
+int nxt_sendmessage(int mbox, char *message, int nxtSocket)    {
 	unsigned char btlength[2]={0x00,0x00};
 	unsigned char cmd[max_message_size];
 	unsigned char reply[max_message_size];
@@ -46,18 +103,18 @@ int nxt_sendmessage(int mbox, char *message)    {
 	// bluetooth length
 	btlength[0]= 4 + msgsize;
 	// send bluetooth length
-	if ( (result = write(nxtSocket, btlength, 2)) < 0)      {
+    if ( (result = write(nxtSocket, btlength, 2)) < 0)      {
 	perror("error sending messagewrite command ");
 	return result;
 	}
 	// send message
-	if ( (result = write(nxtSocket, cmd, btlength[0])) < 0) {
+    if ( (result = write(nxtSocket, cmd, btlength[0])) < 0) {
 	perror("error sending messagewrite command ");
 	return result;
 	}
 
 			/* ___________ READ REPLY __________ */
-	if ( (result = read(nxtSocket, reply, 2)) < 0)  {
+    if ( (result = read(nxtSocket, reply, 2)) < 0)  {
 	perror("error receiving messagewrite reply ");
 	return result;
 	}
@@ -65,7 +122,7 @@ int nxt_sendmessage(int mbox, char *message)    {
 	*
 	256);
 	// get return package
-	if ( (result = read(nxtSocket, reply, replylength)) < 0)        {
+    if ( (result = read(nxtSocket, reply, replylength)) < 0)        {
 	perror("error receiving messagewrite reply ");
 	return result;
 	}
@@ -101,9 +158,8 @@ int nxt_sendmessage(int mbox, char *message)    {
 
 
 
-int recevoir ()
+int recevoir (int nxtSocket)
 {
-
 	unsigned char buf[9];
     //int nbytes = 8;
 	int i = 0;

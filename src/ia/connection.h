@@ -16,6 +16,7 @@
 #include <bluetooth/bluetooth.h>
 #include <bluetooth/rfcomm.h>
 
-int init_bluetooth(char *btAddress);
-int nxt_sendmessage(int mbox, char *message);
+int init_bluetooth(char *btAddress, int robot);
+int send_direction (int robot, int direction);
+int nxt_sendmessage(int mbox, char *message, int nxtSocket);
 int recevoir ();

@@ -2,6 +2,7 @@
 #define REPRESENTATION_H
 
 #include "global.h"
+#include "robot.h"
 #include <vector>
 #include <iostream>
 #include <stdlib.h>

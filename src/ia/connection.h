@@ -17,6 +17,10 @@
 #include <bluetooth/rfcomm.h>
 
 int init_bluetooth(char *btAddress, int robot);
-int send_direction (int robot, int direction);
+
+//int robot  == robot.id
+//direction : 1 HAUT   2 DROITE   3 BAS     4 GAUCHE
+void send_direction (int robot, int direction);
+
 int nxt_sendmessage(int mbox, char *message, int nxtSocket);
 int recevoir ();

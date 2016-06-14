@@ -60,7 +60,7 @@ int init_bluetooth(char *btAddress, int robot)     {
 	return 0;
 }
 
-int send_direction (int robot, int direction)
+void send_direction (int robot, int direction)
 {
     char *msg =(char *) malloc (sizeof(int));
 
@@ -168,7 +168,7 @@ int recevoir (int nxtSocket)
 
     while(1){
         do{
-            len =read(nxtSocket, &buf[i], 1);
+            len = read(nxtSocket, &buf[i], 1);
            // printf("[%d]\n", buf[i]);
             //printf("number of bytes returned:  %d\n", i);
             i++;

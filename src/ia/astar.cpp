@@ -115,7 +115,7 @@ void new_Case (int new_x, int  new_y, int ancienne_direction, int G_parent, int 
 void return_ouvert_not_ricochet (Case *courant,int x_goal, int y_goal,repr reper)
 {
     if(!be_ferme(courant->x, courant->y + 1) && ((reper.wall[getIndexWallVisited(courant->x, courant->y)] & UP) == 0)
-            && (reper.visited[getIndexWallVisited(courant.x, courant.y)] & UP) != 0)
+            && (reper.visited[getIndexWallVisited(courant->x, courant->y)] & UP) != 0)
     {
         if(!be_ouvert(courant->x, courant->y + 1))
         {
@@ -133,7 +133,7 @@ void return_ouvert_not_ricochet (Case *courant,int x_goal, int y_goal,repr reper
         }
     }
     if(!be_ferme(courant->x + 1, courant->y ) && ((reper.wall[getIndexWallVisited(courant->x, courant->y)] & RIGHT) == 0)
-            && (reper.visited[getIndexWallVisited(courant.x, courant.y)] & RIGHT) != 0)
+            && (reper.visited[getIndexWallVisited(courant->x, courant->y)] & RIGHT) != 0)
     {
         if(!be_ouvert(courant->x + 1, courant->y ))
         {
@@ -151,7 +151,7 @@ void return_ouvert_not_ricochet (Case *courant,int x_goal, int y_goal,repr reper
         }
     }
     if(!be_ferme(courant->x, courant->y - 1) && ((reper.wall[getIndexWallVisited(courant->x, courant->y)] & DOWN) == 0)
-            && (reper.visited[getIndexWallVisited(courant.x, courant.y)] & DOWN) != 0)
+            && (reper.visited[getIndexWallVisited(courant->x, courant->y)] & DOWN) != 0)
     {
         if(!be_ouvert(courant->x, courant->y - 1))
         {
@@ -169,7 +169,7 @@ void return_ouvert_not_ricochet (Case *courant,int x_goal, int y_goal,repr reper
         }
     }
     if(!be_ferme(courant->x - 1, courant->y ) && ((reper.wall[getIndexWallVisited(courant->x, courant->y)] & LEFT) == 0)
-            && (reper.visited[getIndexWallVisited(courant.x, courant.y)] & LEFT) != 0)
+            && (reper.visited[getIndexWallVisited(courant->x, courant->y)] & LEFT) != 0)
     {
         if(!be_ouvert(courant->x - 1, courant->y))
         {
@@ -194,7 +194,7 @@ void return_ouvert_ricochet (Case *courant,int x_goal, int y_goal,repr reper)
 {
     if(courant->ancienne_direction == HAUT && !be_ferme(courant->x, courant->y + 1)
             && ((reper.wall[getIndexWallVisited(courant->x, courant->y)] & UP) == 0)
-            && (reper.visited[getIndexWallVisited(courant.x, courant.y)] & UP) != 0)
+            && (reper.visited[getIndexWallVisited(courant->x, courant->y)] & UP) != 0)
     {
         if(!be_ouvert(courant->x, courant->y + 1))
         {
@@ -213,7 +213,7 @@ void return_ouvert_ricochet (Case *courant,int x_goal, int y_goal,repr reper)
     }
     if(courant->ancienne_direction == DROITE && !be_ferme(courant->x + 1, courant->y )
             && ((reper.wall[getIndexWallVisited(courant->x, courant->y)] & RIGHT) == 0)
-            && (reper.visited[getIndexWallVisited(courant.x, courant.y)] & RIGHT) != 0)
+            && (reper.visited[getIndexWallVisited(courant->x, courant->y)] & RIGHT) != 0)
     {
         if(!be_ouvert(courant->x + 1, courant->y ))
         {
@@ -232,7 +232,7 @@ void return_ouvert_ricochet (Case *courant,int x_goal, int y_goal,repr reper)
     }
     if(courant->ancienne_direction == BAS && !be_ferme(courant->x, courant->y - 1)
             && ((reper.wall[getIndexWallVisited(courant->x, courant->y)] & DOWN) == 0)
-            && (reper.visited[getIndexWallVisited(courant.x, courant.y)] & DOWN) != 0)
+            && (reper.visited[getIndexWallVisited(courant->x, courant->y)] & DOWN) != 0)
     {
         if(!be_ouvert(courant->x, courant->y - 1))
         {
@@ -251,7 +251,7 @@ void return_ouvert_ricochet (Case *courant,int x_goal, int y_goal,repr reper)
     }
     if(courant->ancienne_direction == GAUCHE && !be_ferme(courant->x - 1, courant->y )
             && ((reper.wall[getIndexWallVisited(courant->x, courant->y)] & LEFT) == 0)
-            && (reper.visited[getIndexWallVisited(courant.x, courant.y)] & LEFT) != 0)
+            && (reper.visited[getIndexWallVisited(courant->x, courant->y)] & LEFT) != 0)
     {
         if(!be_ouvert(courant->x - 1, courant->y))
         {
@@ -270,10 +270,10 @@ void return_ouvert_ricochet (Case *courant,int x_goal, int y_goal,repr reper)
     }
 
     if(courant->ancienne_direction == HAUT && ((reper.wall[getIndexWallVisited(courant->x, courant->y)] & UP) != 0)
-            && (reper.visited[getIndexWallVisited(courant.x, courant.y)] & UP) != 0)
+            && (reper.visited[getIndexWallVisited(courant->x, courant->y)] & UP) != 0)
     {
         if(((reper.wall[getIndexWallVisited(courant->x, courant->y)] & LEFT) == 0) && !be_ferme(courant->x - 1, courant->y)
-                && (reper.visited[getIndexWallVisited(courant.x, courant.y)] & LEFT) != 0)
+                && (reper.visited[getIndexWallVisited(courant->x, courant->y)] & LEFT) != 0)
         {
             if(!be_ouvert(courant->x - 1, courant->y))
             {
@@ -291,7 +291,7 @@ void return_ouvert_ricochet (Case *courant,int x_goal, int y_goal,repr reper)
             }
         }
         if(((reper.wall[getIndexWallVisited(courant->x, courant->y)] & RIGHT) == 0) && !be_ferme(courant->x + 1, courant->y)
-                && (reper.visited[getIndexWallVisited(courant.x, courant.y)] & RIGHT) != 0)
+                && (reper.visited[getIndexWallVisited(courant->x, courant->y)] & RIGHT) != 0)
         {
             if(!be_ouvert(courant->x + 1, courant->y))
             {
@@ -311,10 +311,10 @@ void return_ouvert_ricochet (Case *courant,int x_goal, int y_goal,repr reper)
     }
 
     if(courant->ancienne_direction == DROITE && ((reper.wall[getIndexWallVisited(courant->x, courant->y)] & RIGHT) != 0)
-            && (reper.visited[getIndexWallVisited(courant.x, courant.y)] & RIGHT) != 0)
+            && (reper.visited[getIndexWallVisited(courant->x, courant->y)] & RIGHT) != 0)
     {
         if(((reper.wall[getIndexWallVisited(courant->x, courant->y)] & DOWN) == 0) && !be_ferme(courant->x , courant->y - 1)
-                && (reper.visited[getIndexWallVisited(courant.x, courant.y)] & DOWN) != 0)
+                && (reper.visited[getIndexWallVisited(courant->x, courant->y)] & DOWN) != 0)
         {
             if(!be_ouvert(courant->x , courant->y - 1))
             {
@@ -334,7 +334,7 @@ void return_ouvert_ricochet (Case *courant,int x_goal, int y_goal,repr reper)
             }
         }
         if(((reper.wall[getIndexWallVisited(courant->x, courant->y)] & UP) == 0) && !be_ferme(courant->x , courant->y + 1)
-                && (reper.visited[getIndexWallVisited(courant.x, courant.y)] & UP) != 0)
+                && (reper.visited[getIndexWallVisited(courant->x, courant->y)] & UP) != 0)
         {
             if(!be_ouvert(courant->x , courant->y + 1))
             {
@@ -354,10 +354,10 @@ void return_ouvert_ricochet (Case *courant,int x_goal, int y_goal,repr reper)
     }
 
     if(courant->ancienne_direction == BAS && ((reper.wall[getIndexWallVisited(courant->x, courant->y)] & DOWN) != 0)
-            && (reper.visited[getIndexWallVisited(courant.x, courant.y)] & DOWN) != 0)
+            && (reper.visited[getIndexWallVisited(courant->x, courant->y)] & DOWN) != 0)
     {
         if(((reper.wall[getIndexWallVisited(courant->x, courant->y)] & LEFT) == 0) && !be_ferme(courant->x - 1, courant->y)
-                && (reper.visited[getIndexWallVisited(courant.x, courant.y)] & LEFT) != 0)
+                && (reper.visited[getIndexWallVisited(courant->x, courant->y)] & LEFT) != 0)
         {
             if(!be_ouvert(courant->x - 1, courant->y))
             {
@@ -376,7 +376,7 @@ void return_ouvert_ricochet (Case *courant,int x_goal, int y_goal,repr reper)
             }
         }
         if(((reper.wall[getIndexWallVisited(courant->x, courant->y)] & RIGHT) == 0) && !be_ferme(courant->x + 1, courant->y)
-                && (reper.visited[getIndexWallVisited(courant.x, courant.y)] & RIGHT) != 0)
+                && (reper.visited[getIndexWallVisited(courant->x, courant->y)] & RIGHT) != 0)
         {
             if(!be_ouvert(courant->x + 1, courant->y))
             {
@@ -396,10 +396,10 @@ void return_ouvert_ricochet (Case *courant,int x_goal, int y_goal,repr reper)
     }
 
     if(courant->ancienne_direction == GAUCHE && ((reper.wall[getIndexWallVisited(courant->x, courant->y)] & LEFT) != 0)
-            && (reper.visited[getIndexWallVisited(courant.x, courant.y)] & LEFT) != 0)
+            && (reper.visited[getIndexWallVisited(courant->x, courant->y)] & LEFT) != 0)
     {
         if(((reper.wall[getIndexWallVisited(courant->x, courant->y)] & DOWN) == 0) && !be_ferme(courant->x, courant->y  -1)
-                && (reper.visited[getIndexWallVisited(courant.x, courant.y)] & DOWN) != 0)
+                && (reper.visited[getIndexWallVisited(courant->x, courant->y)] & DOWN) != 0)
         {
             if(!be_ouvert(courant->x, courant->y  -1))
             {
@@ -417,7 +417,7 @@ void return_ouvert_ricochet (Case *courant,int x_goal, int y_goal,repr reper)
             }
         }
         if(((reper.wall[getIndexWallVisited(courant->x, courant->y)] & UP) == 0) && !be_ferme(courant->x, courant->y + 1)
-                && (reper.visited[getIndexWallVisited(courant.x, courant.y)] & UP) != 0)
+                && (reper.visited[getIndexWallVisited(courant->x, courant->y)] & UP) != 0)
         {
             if(!be_ouvert(courant->x, courant->y + 1))
             {

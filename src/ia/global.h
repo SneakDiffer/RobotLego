@@ -28,7 +28,14 @@ enum Direction {
     DOWN = 2,
     LEFT = 4,
     RIGHT = 8
+};
 
+struct Robot{
+    int id;
+    int x;
+    int y;
+    int dir;
+    int dir_scan;
 };
 
 #endif // GLOBAL_H

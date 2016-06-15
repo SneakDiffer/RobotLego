@@ -60,7 +60,7 @@ int init_bluetooth(char *btAddress, int robot)     {
 	return 0;
 }
 
-int send_direction (int robot, int direction)
+void send_direction (int robot, int direction)
 {
     char *msg =(char *) malloc (sizeof(int));
 
@@ -158,24 +158,34 @@ int nxt_sendmessage(int mbox, char *message, int nxtSocket)    {
 
 
 
-int recevoir (int nxtSocket)
+int recevoir (int id_robot)
 {
 	unsigned char buf[9];
     //int nbytes = 8;
 	int i = 0;
     int len = 0;
 	int chiffre = 0;
+    int nxtSocket;
+    switch(id_robot)
+    {
+        case 1:
+            nxtSocket = ROBOT_1;
+            break;
+        case 2:
+            nxtSocket = ROBOT_2;
+            break;
+        case 3:
+            nxtSocket = ROBOT_3;
+            break;
+    }
 
     while(1){
         do{
-            len =read(nxtSocket, &buf[i], 1);
-           // printf("[%d]\n", buf[i]);
-            //printf("number of bytes returned:  %d\n", i);
+            len = read(nxtSocket, &buf[i], 1);
+
             i++;
         }while(i <= 10);
-        i=0;
-        //chiffre=(int)buf[6]; //ca envoie sur le bit 6
-        printf("-------------%d\n", chiffre);
+        chiffre=(int)buf[6]; //ca envoie sur le bit 6
         break;
     }
     return chiffre;

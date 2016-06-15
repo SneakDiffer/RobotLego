@@ -2,16 +2,19 @@
 #define REPRESENTATION_H
 
 #include "global.h"
-#include "representation.h"
+#include "robot.h"
 #include <vector>
+#include <iostream>
+#include <stdlib.h>
+using namespace std;
 
 
 std::vector<int> setupWall(int w, int h);
 std::vector<int> setupWallVisited(int w, int h);
 
 
-struct repr {
 
+struct repr {
         // wall representation
         std::vector<int> wall;
 
@@ -39,5 +42,8 @@ struct repr {
 int getIndexWallVisited(int row,int col);
 
 int getIndexAdj(int row,int col);
+void completement_ad_information (Robot robot, repr *reper, int nb_case, bool inverse);
+void wall_visited (Robot robot, repr *reper, int nb_case);
+void ad_information (Robot robot, int distance, repr *reper);
 
 #endif // REPRESENTATION_H

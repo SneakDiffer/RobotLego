@@ -5,6 +5,7 @@
 #include <deque>
 #include <stdlib.h>
 #include "representation.h"
+#include "connection.h"
 using namespace std;
 
 struct Case {
@@ -31,7 +32,10 @@ void direction_begin (Case *courant,int x_goal,int y_goal,repr reper,int largeur
 Case lowest_node ();
 Case return_node (int x, int y);
 void affiche_chemin (Case *courant,int x_dep, int y_dep);
-void find_path_ricochet (int x_dep, int y_dep, int x_goal, int y_goal, int longueur, int largeur,repr reper);
-void find_path_not_ricochet (int x_dep, int y_dep, int x_goal, int y_goal, repr reper);
+void envoi_chemin(Robot robot);
+
+//Les deux fonctions suivantes, envoie directement le chemin à suivre, return -1 si pas de chemin trouver, et 0 si chemin trouvé
+int find_path_ricochet (int x_dep, int y_dep, int x_goal, int y_goal, int longueur, int largeur,repr reper,Robot robot);
+int find_path_not_ricochet (int x_dep, int y_dep, int x_goal, int y_goal, repr reper,Robot robot);
 
 #endif // ASTAR_H

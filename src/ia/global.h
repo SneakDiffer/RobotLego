@@ -28,7 +28,7 @@ enum Direction {
     DOWN = 2,
     LEFT = 4,
     RIGHT = 8
-
 };
+
 
 #endif // GLOBAL_H

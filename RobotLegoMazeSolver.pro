@@ -1,7 +1,7 @@
 DESTDIR = bin/
 OBJECTS_DIR = obj/
 
-QMAKE_CXXFLAGS += -lm -lbluetooth
+QMAKE_CXXFLAGS += -lm -lbluetooth -std=c++11 -pthread -lpthread
 
 QT += widgets
 

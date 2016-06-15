@@ -23,4 +23,4 @@ int init_bluetooth(char *btAddress, int robot);
 void send_direction (int robot, int direction);
 
 int nxt_sendmessage(int mbox, char *message, int nxtSocket);
-int recevoir ();
+int recevoir (int id_robot);

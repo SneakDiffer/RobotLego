@@ -15,7 +15,6 @@ std::vector<int> setupWallVisited(int w, int h);
 
 
 struct repr {
-
         // wall representation
         std::vector<int> wall;
 

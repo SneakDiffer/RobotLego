@@ -7,7 +7,7 @@
 
 std::deque<Case> ouvert;
 std::deque<Case> ferme;
-
+/*
 
 
 int affiche_ouvert ()
@@ -630,4 +630,4 @@ void find_path_not_ricochet (int x_dep, int y_dep, int x_goal, int y_goal, repr 
         }
     }
 }
-
+*/

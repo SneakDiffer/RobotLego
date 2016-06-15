@@ -17,7 +17,8 @@ SOURCES = \
     src/ia/representation.cpp \
     src/ia/global.cpp \
     src/ia/backup.cpp \
-    src/ia/astar.cpp
+    src/ia/astar.cpp \
+    src/ia/squareexploration.cpp
 
 HEADERS = \
     src/ia/connection.h \
@@ -27,7 +28,8 @@ HEADERS = \
     src/ui/qapp.h \
     src/ui/walldrawer.h \
     src/ia/backup.h \
-    src/ia/astar.h
+    src/ia/astar.h \
+    src/ia/squareexploration.h
 
 
 FORMS += \

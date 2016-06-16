@@ -71,7 +71,7 @@ void simpleCase(Robot *robot,repr maze){
             switch(initPos){
             case 1:
                 //send_deplacement(UP);
-                //VERIF ICI ?
+                //if(find_path_not_ricochet(robot->x,robot->y,robot->x,robot->y+1,maze,*robot) == -1){cond = false; break;}
                 robot->y++;
                 if(robot->y == (conf::SIZE_Y-1)){
                     //On a finis le premier déplacement latéral
@@ -80,7 +80,7 @@ void simpleCase(Robot *robot,repr maze){
                 break;
             case 2:
                 //send_deplacement(RIGHT);
-                //if(find_path_not_ricochet(robot->x,robot->y,robot->x,robot->y,maze,*robot) == -1){cond = false; break;}
+                //if(find_path_not_ricochet(robot->x,robot->y,robot->x+1,robot->y,maze,*robot) == -1){cond = false; break;}
                 robot->x++;
                 if(robot->x == (conf::SIZE_X-1)){
                     //On a finis le premier déplacement latéral
@@ -89,7 +89,7 @@ void simpleCase(Robot *robot,repr maze){
                 break;
             case 3:
                 //send_deplacement(LEFT);
-                //VERIF?
+                //if(find_path_not_ricochet(robot->x,robot->y,robot->x-1,robot->y,maze,*robot) == -1){cond = false; break;}
                 robot->x--;
                 if(robot->x == 0){
                     //On a finis le premier déplacement latéral
@@ -99,7 +99,7 @@ void simpleCase(Robot *robot,repr maze){
                 break;
             case 4:
                 //send_deplacement(DOWN);
-                //if(find_path_not_ricochet(robot->x,robot->y,robot->x,robot->y,maze,*robot) == -1){cond = false; break;}
+                //if(find_path_not_ricochet(robot->x,robot->y,robot->x,robot->y-1,maze,*robot) == -1){cond = false; break;}
                 robot->y--;
                 if(robot->y == 0){
                     //On a finis le premier déplacement latéral

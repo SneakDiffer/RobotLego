@@ -73,17 +73,8 @@ int main(int argc, char *argv[])
 
     conf::SIZE_X = 3;
     conf::SIZE_Y = 4;
-    Robot robot1;
-    Robot robot2;
-    robot1.id = 1;
-    robot1.x = 0;
-    robot1.y = 0;
-    robot1.dir_scan = RIGHT;
-
-    robot2.id = 2;
-    robot2.x = 2;
-    robot2.y = 2;
-    robot2.dir_scan = LEFT;
+    Robot robot1(1,0,0,RIGHT);
+    Robot robot2(2,2,2,LEFT);
     repr rep(conf::SIZE_X,conf::SIZE_Y);
 
     std::thread t1(Robot1,robot1,&rep);

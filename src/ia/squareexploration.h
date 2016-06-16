@@ -4,10 +4,10 @@
 #include "representation.h"
 #include "robot.h"
 
-void simpleCase(robot *robot,repr maze);
-void complexeCase(robot *robot, repr maze);
+void simpleCase(Robot *robot,repr maze);
+void complexeCase(Robot *robot, repr maze);
 
-void squareExploration(robot *robot,repr maze);
+void squareExploration(Robot *robot,repr maze);
 
 
 #endif // SQUAREEXPLORATION_H

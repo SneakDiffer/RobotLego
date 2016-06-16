@@ -16,7 +16,7 @@ Tout en permettant des actions dans chaque cases.
  * Donc on divise le maze en deux carrés distinct.
  */
 
-void squareExploration(robot *robot,repr maze){
+void squareExploration(Robot *robot, repr maze){
 
     /*===========TRAITEMENT INITIAUX============*/
     //On check la taille du labyrinthe afin de voir le chemin à prendre ( V2 )
@@ -34,7 +34,7 @@ void squareExploration(robot *robot,repr maze){
 /*========================================
  *             CASE SIMPLE (12x12 max)
  * =====================================*/
-void simpleCase(robot *robot,repr maze){
+void simpleCase(Robot *robot,repr maze){
     int initPos = 0;
     int tour = 0;
     while(tour < 2){
@@ -117,7 +117,7 @@ void simpleCase(robot *robot,repr maze){
 /*========================================
  *         CASE SIMPLE (13x13 min)
  * =====================================*/
-void complexeCase(robot *robot, repr maze){
+void complexeCase(Robot *robot, repr maze){
     /*******************************
      *    TRAITEMENT DE LA TAILLE
      * *****************************/

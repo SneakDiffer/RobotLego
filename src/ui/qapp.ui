@@ -6,14 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>847</width>
-    <height>620</height>
+    <width>1049</width>
+    <height>784</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>847</width>
-    <height>620</height>
+    <width>1049</width>
+    <height>784</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -23,19 +23,22 @@
    <property name="enabled">
     <bool>true</bool>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
+   <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0">
     <item>
-     <widget class="Walldrawer" name="frame">
-      <property name="frameShape">
-       <enum>QFrame::NoFrame</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
+     <widget class="QGraphicsView" name="graphicsView">
+      <property name="minimumSize">
+       <size>
+        <width>1024</width>
+        <height>512</height>
+       </size>
       </property>
      </widget>
     </item>
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout">
+      <property name="sizeConstraint">
+       <enum>QLayout::SetMinimumSize</enum>
+      </property>
       <item>
        <widget class="QGroupBox" name="groupBox">
         <property name="minimumSize">
@@ -129,18 +132,14 @@
      </layout>
     </item>
    </layout>
-   <zorder>groupBox_2</zorder>
-   <zorder>groupBox_2</zorder>
-   <zorder>horizontalLayoutWidget</zorder>
-   <zorder>frame</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>847</width>
-     <height>35</height>
+     <width>1049</width>
+     <height>30</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuMenu">
@@ -184,14 +183,6 @@
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <customwidgets>
-  <customwidget>
-   <class>Walldrawer</class>
-   <extends>QFrame</extends>
-   <header>walldrawer.h</header>
-   <container>1</container>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

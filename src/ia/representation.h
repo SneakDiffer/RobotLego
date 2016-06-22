@@ -42,9 +42,6 @@ struct repr {
 int getIndexWallVisited(int row,int col);
 
 int getIndexAdj(int row,int col);
-void completement_ad_information (Robot robot, repr *reper, int nb_case, bool inverse);
-void wall_visited (Robot robot, repr *reper, int nb_case);
-void ad_information (Robot robot, int distance, repr *reper);
 void draw(repr maze,Robot robot);
 void drawVisited(repr maze, Robot robot);
 

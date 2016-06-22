@@ -7,8 +7,8 @@ struct Robot{
     int x;
     int y;
     int dir;
-    Robot(int _id,int _x,int _y,int _dir):id(_id),x(_x),y(_y),dir(_dir){}
     int dir_scan;
+    Robot(int _id,int _x,int _y,int _dir,int _dir_scan):id(_id),x(_x),y(_y),dir(_dir),dir_scan(_dir_scan){}
 };
 
 #endif // ROBOT_H

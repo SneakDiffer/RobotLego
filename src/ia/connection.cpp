@@ -60,22 +60,43 @@ int init_bluetooth(char *btAddress, int robot)     {
 	return 0;
 }
 
-void send_direction (int robot, int direction)
+void send_direction (int robot, int direction,int direction_scanne)
 {
     char *msg =(char *) malloc (sizeof(int));
+
+    //Le robot a pour direction : HAUT = 1 , DROITE = 2, BAS = 3, GAUCHE = 4
+    //Donc on convertit les direction PC en direction Robot
+    if(direction == 2)
+    {
+        direction = 3;
+    }
+    if(direction == 8)
+    {
+        direction = 2;
+    }
+
+    if(direction_scanne == 2)
+    {
+        direction_scanne = 3;
+    }
+    if(direction_scanne == 8)
+    {
+        direction_scanne = 2;
+    }
 
     switch(robot)
     {
         case 1:
-            sprintf(msg,"%d",direction);
+            sprintf(msg,"%d",(direction *10) + direction_scanne);
+            cout << "ENVOI " << msg << endl;
             nxt_sendmessage(7,msg,ROBOT_1);
             break;
         case 2:
-            sprintf(msg,"%d",direction);
+            sprintf(msg,"%d",(direction *10) + direction_scanne);
             nxt_sendmessage(7,msg,ROBOT_2);
             break;
         case 3:
-            sprintf(msg,"%d",direction);
+            sprintf(msg,"%d",(direction *10) + direction_scanne);
             nxt_sendmessage(7,msg,ROBOT_3);
             break;
     }
@@ -186,6 +207,7 @@ int recevoir (int id_robot)
             i++;
         }while(i <= 10);
         chiffre=(int)buf[6]; //ca envoie sur le bit 6
+        cout << "RECU " << chiffre << endl;
         break;
     }
     return chiffre;

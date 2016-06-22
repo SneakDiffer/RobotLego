@@ -2,12 +2,6 @@
 #include "global.h"
 
 
-#define KNRM  "\x1B[0m"
-#define KRED  "\x1B[31m"
-#define KBLU  "\x1B[32m"
-#define KYEL  "\x1B[33m"
-#define KBLU  "\x1B[34m"
-#define KCLIGN "\x1B[3m\x1B
 
 std::vector<int> setupWall(int w, int h){
     std::vector<int> wall(w*h);
@@ -32,31 +26,6 @@ std::vector<int> setupWall(int w, int h){
         }
     }
     return wall;
-}
-
-std::vector<int> setupWallVisited(int w, int h){
-    std::vector<int> visited(w*h);
-    for(  int i = 0 ; i < w ; i++ ){
-        for(  int y = 0 ; y < h ; y++ ){
-            //On met en place les mur pour la ligne en haut UP
-            if(i==0){
-                visited[y] += UP;
-            }
-            //On met en place les murs pour la ligne du bas DOWN
-            if(i==(w-1)){
-                visited[getIndexWallVisited(w-1,y)]+= DOWN;
-            }
-            //On met en place les murs pour la gauche LEFT
-            if(y==0){
-                visited[getIndexWallVisited(i,0)] += LEFT;
-            }
-            //On met en place les murs pour la droite RIGHT
-            if(y==h-1){
-                visited[getIndexWallVisited(i,h-1)] += RIGHT;
-            }
-        }
-    }
-    return visited;
 }
 
 int getIndexWallVisited(int row, int col){
@@ -267,7 +236,7 @@ void draw(repr maze, Robot robot){
                 if((maze.wall[getIndexWallVisited(i,z)] & DOWN) != DOWN ){
                                 std::cout << KBLU <<"|" << KNRM << " o ";
                             }else{
-                                std::cout << KRED <<"|" << KNRM << " o";
+                                std::cout << KRED <<"|" << KNRM << " o ";
                             }
             }
             else if((maze.wall[getIndexWallVisited(i,z)] & DOWN) != DOWN ){
@@ -313,7 +282,7 @@ void drawVisited(repr maze, Robot robot){
                 if((maze.visited[getIndexWallVisited(i,z)] & DOWN) != DOWN ){
                                 std::cout << KYEL <<"|" << KNRM << " o ";
                             }else{
-                                std::cout << KBLU <<"|" << KNRM << " o";
+                                std::cout << KBLU <<"|" << KNRM << " o ";
                             }
             }
             else if((maze.visited[getIndexWallVisited(i,z)] & DOWN) != DOWN ){

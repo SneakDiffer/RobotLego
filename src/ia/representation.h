@@ -35,7 +35,7 @@ struct repr {
         } adjmatrix;
 
         // constructor
-        repr(unsigned int w, unsigned int h) : wall(setupWall(w,h)), visited(setupWallVisited(w,h)),adjmatrix(w,h){}
+        repr(unsigned int w, unsigned int h) : wall(setupWall(w,h)), visited(setupWall(w,h)),adjmatrix(w,h){}
 
 }; // end of repr
 

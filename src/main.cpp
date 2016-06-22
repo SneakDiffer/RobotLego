@@ -71,7 +71,7 @@ int main(int argc, char *argv[])
 //    return a.exec();
 
 
-    conf::SIZE_X = 3;
+    conf::SIZE_X = 4;
     conf::SIZE_Y = 4;
     Robot robot1(1,0,0,RIGHT);
     Robot robot2(2,2,2,LEFT);

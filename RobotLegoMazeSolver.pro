@@ -6,6 +6,7 @@ QMAKE_CXXFLAGS += -lm -lbluetooth -std=c++11 -pthread -lpthread
 QT += widgets
 
 TEMPLATE = app
+CONFIG += console c++11
 
 LIBS += -lbluetooth
 

@@ -47,13 +47,13 @@ int getIndexAdj(int row, int col){
 }
 
 
-void draw(repr maze, Robot robot){
+void draw(repr* maze, Robot* robot){
     //Premièrement on clear
     system("clear");
     //On trace
     for(int i = 0 ; i < conf::SIZE_X ; i++){
         for(int y = 0 ; y < conf::SIZE_Y ; y++){
-            if((maze.wall[getIndexWallVisited(i,y)] & LEFT) != LEFT){
+            if((maze->wall[getIndexWallVisited(i,y)] & LEFT) != LEFT){
                 std::cout << KBLU <<" ---" << KNRM;
             }else{
                 std::cout << KRED <<" ---" << KNRM;
@@ -62,20 +62,20 @@ void draw(repr maze, Robot robot){
         }
         std::cout << "" << endl;
         for(int z = 0 ; z < conf::SIZE_Y ; z++){
-            if(robot.x == i && robot.y == z){
-                if((maze.wall[getIndexWallVisited(i,z)] & DOWN) != DOWN ){
+            if(robot->x == i && robot->y == z){
+                if((maze->wall[getIndexWallVisited(i,z)] & DOWN) != DOWN ){
                                 std::cout << KBLU <<"|" << KNRM << " o ";
                             }else{
                                 std::cout << KRED <<"|" << KNRM << " o ";
                             }
             }
-            else if((maze.wall[getIndexWallVisited(i,z)] & DOWN) != DOWN ){
+            else if((maze->wall[getIndexWallVisited(i,z)] & DOWN) != DOWN ){
                 std::cout << KBLU <<"|   " << KNRM;
             }else{
                 std::cout << KRED <<"|   " << KNRM;
             }
         }
-        if((maze.wall[getIndexWallVisited(i,conf::SIZE_Y-1)] & UP) != UP){
+        if((maze->wall[getIndexWallVisited(i,conf::SIZE_Y-1)] & UP) != UP){
             std::cout << KBLU <<"|" << KNRM;
         }else{
             std::cout << KRED <<"|" << KNRM;
@@ -83,7 +83,7 @@ void draw(repr maze, Robot robot){
         std::cout << "" << endl;
     }
     for(int w = 0 ; w < conf::SIZE_Y ; w++){
-        if((maze.wall[getIndexWallVisited(conf::SIZE_X-1,w)] & RIGHT) != RIGHT){
+        if((maze->wall[getIndexWallVisited(conf::SIZE_X-1,w)] & RIGHT) != RIGHT){
             std::cout << KBLU <<" ---" << KNRM;
         }else{
             std::cout << KRED <<" ---" << KNRM;
@@ -93,13 +93,13 @@ void draw(repr maze, Robot robot){
 
 }
 
-void drawVisited(repr maze, Robot robot){
+void drawVisited(repr* maze, Robot* robot){
     //Premièrement on clear
     system("clear");
     //On trace
     for(int i = 0 ; i < conf::SIZE_X ; i++){
         for(int y = 0 ; y < conf::SIZE_Y ; y++){
-            if((maze.visited[getIndexWallVisited(i,y)] & LEFT) != LEFT){
+            if((maze->visited[getIndexWallVisited(i,y)] & LEFT) != LEFT){
                 std::cout << KYEL <<" ---" << KNRM;
             }else{
                 std::cout << KBLU <<" ---" << KNRM;
@@ -108,20 +108,20 @@ void drawVisited(repr maze, Robot robot){
         }
         std::cout << "" << endl;
         for(int z = 0 ; z < conf::SIZE_Y ; z++){
-            if(robot.x == i && robot.y == z){
-                if((maze.visited[getIndexWallVisited(i,z)] & DOWN) != DOWN ){
+            if(robot->x == i && robot->y == z){
+                if((maze->visited[getIndexWallVisited(i,z)] & DOWN) != DOWN ){
                                 std::cout << KYEL <<"|" << KNRM << " o ";
                             }else{
                                 std::cout << KBLU <<"|" << KNRM << " o ";
                             }
             }
-            else if((maze.visited[getIndexWallVisited(i,z)] & DOWN) != DOWN ){
+            else if((maze->visited[getIndexWallVisited(i,z)] & DOWN) != DOWN ){
                 std::cout << KYEL <<"|   " << KNRM;
             }else{
                 std::cout << KBLU <<"|   " << KNRM;
             }
         }
-        if((maze.visited[getIndexWallVisited(i,conf::SIZE_Y-1)] & UP) != UP){
+        if((maze->visited[getIndexWallVisited(i,conf::SIZE_Y-1)] & UP) != UP){
             std::cout << KYEL <<"|" << KNRM;
         }else{
             std::cout << KBLU <<"|" << KNRM;
@@ -129,7 +129,7 @@ void drawVisited(repr maze, Robot robot){
         std::cout << "" << endl;
     }
     for(int w = 0 ; w < conf::SIZE_Y ; w++){
-        if((maze.visited[getIndexWallVisited(conf::SIZE_X-1,w)] & RIGHT) != RIGHT){
+        if((maze->visited[getIndexWallVisited(conf::SIZE_X-1,w)] & RIGHT) != RIGHT){
             std::cout << KYEL <<" ---" << KNRM;
         }else{
             std::cout << KBLU <<" ---" << KNRM;

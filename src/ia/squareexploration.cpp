@@ -216,9 +216,11 @@ void complexeCase(Robot *robot, repr* maze, int x_goal, int y_goal){
         switch(initPos){
         case 1:
 
+
             //Si pas de murs en face de notre direction
             //On envoie au robot la direction
             //On recois les nouvelles informations qu'on enregistre dans reper
+
             if(((maze->wall[getIndexWallVisited(robot->x, robot->y)] & UP) == 0) && ((maze->visited[getIndexWallVisited(robot->x, robot->y)] & UP) != 0))
             {
                 cout << "DEPLACEMENT UP ! " << endl;
@@ -238,6 +240,8 @@ void complexeCase(Robot *robot, repr* maze, int x_goal, int y_goal){
                 while(!my_mutex.try_lock()) {};
                 ad_information_dir_scan  (robot,receive,maze);
                 my_mutex.unlock();
+                drawVisited(maze, robot);
+
 
             }
 
@@ -260,7 +264,6 @@ void complexeCase(Robot *robot, repr* maze, int x_goal, int y_goal){
 //                    envoi_chemin_ricochet (robot);
 //                }
             }
-
             break;
         case 2:
             //send_deplacement(DOWN);

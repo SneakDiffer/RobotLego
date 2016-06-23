@@ -144,12 +144,12 @@ int main(int argc, char *argv[])
 //    find_path_not_ricochet (1, 3, 0, 2, &rep, &robot1);
 
 
-   //std::thread t1(Robot1,robot1,&rep);
+   std::thread t1(Robot1,robot1,&rep);
    // std::thread t2(Robot2,robot2,&rep);
 
-   //t1.join();
+   t1.join();
     // t2.join();
-draw(rep, robot1);
-drawVisited(rep, robot1);
+draw(&rep, &robot1);
+drawVisited(&rep, &robot1);
      return 0;
 }

@@ -240,8 +240,8 @@ void complexeCase(Robot *robot, repr* maze, int x_goal, int y_goal){
                 while(!my_mutex.try_lock()) {};
                 ad_information_dir_scan  (robot,receive,maze);
                 my_mutex.unlock();
-                drawVisited(maze, robot);
 
+                drawVisited(maze, robot);
 
             }
 

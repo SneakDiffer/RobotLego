@@ -88,7 +88,7 @@ void send_direction (int robot, int direction,int direction_scanne)
     {
         case 1:
             sprintf(msg,"%d",(direction *10) + direction_scanne);
-            cout << "ENVOI " << msg << endl;
+            //cout << "ENVOI " << msg << endl;
             nxt_sendmessage(7,msg,ROBOT_1);
             break;
         case 2:
@@ -207,7 +207,7 @@ int recevoir (int id_robot)
             i++;
         }while(i <= 10);
         chiffre=(int)buf[6]; //ca envoie sur le bit 6
-        cout << "RECU " << chiffre << endl;
+        //cout << "RECU " << chiffre << endl;
         break;
     }
     return chiffre;

@@ -98,58 +98,12 @@ int main(int argc, char *argv[])
    // Robot robot2(2,2,2,DOWN,RIGHT);
     repr rep(conf::SIZE_X,conf::SIZE_Y);
 
-//    rep.visited[getIndexWallVisited(0, 2)] = RIGHT + UP + DOWN;
-
-//    rep.visited[getIndexWallVisited(0, 3)] = RIGHT + UP + DOWN;
-
-
-//    rep.wall[getIndexWallVisited(0, 3)] = RIGHT;
-
-//    rep.wall[getIndexWallVisited(1, 3)] = RIGHT + DOWN + LEFT;
-
-
-//    rep.visited[getIndexWallVisited(1, 3)] = RIGHT + UP + DOWN + LEFT;
-
-//    rep.wall[getIndexWallVisited(1, 4)] = RIGHT + UP;
-//    rep.visited[getIndexWallVisited(1, 4)] = RIGHT + UP + DOWN + LEFT;
-
-
-
-//    rep.wall[getIndexWallVisited(0, 4)] = UP;
-
-//    rep.visited[getIndexWallVisited(0, 4)] = RIGHT + UP + DOWN;
-
-//    ad_information_dir (&robot1, 115, &rep);
-//robot1.y = 2;
-
-
-//ad_information_dir (&robot1, 75, &rep);
-//affiche_visited(&rep,1, 2, UP);
-//affiche_visited (&rep,1, 2, DOWN);
-//affiche_visited (&rep,1, 2, LEFT);
-//affiche_visited (&rep,1, 2, RIGHT);
-//affiche_visited(&rep,1, 3, UP);
-//affiche_visited (&rep,1,3, DOWN);
-//affiche_visited (&rep,1,3, LEFT);
-//affiche_visited (&rep,1,3, RIGHT);
-
-
-
-//ad_information_dir_scan (&robot1, 75, &rep);
-//affiche_visited(&rep,1, 2, UP);
-//affiche_visited (&rep,1, 2, DOWN);
-//affiche_visited (&rep,1, 2, LEFT);
-//affiche_visited (&rep,1, 2, RIGHT);
-
-//    find_path_not_ricochet (1, 3, 0, 2, &rep, &robot1);
-
 
    std::thread t1(Robot1,robot1,&rep);
    // std::thread t2(Robot2,robot2,&rep);
 
-   t1.join();
+    t1.join();
     // t2.join();
-draw(&rep, &robot1);
-drawVisited(&rep, &robot1);
+
      return 0;
 }

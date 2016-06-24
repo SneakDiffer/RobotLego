@@ -7,6 +7,7 @@
 #include "src/ia/wall_dir_scan.h"
 #include "src/ia/wall_dir.h"
 #include "src/ia/squareexploration.h"
+#include "src/ia/backup.h"
 
 #include "src/ia/astar.h"
 #include <thread>
@@ -82,6 +83,40 @@ void Robot2 (Robot robot,repr *rep)
 
 }
 
+void launchLvl1(){
+    //Deux cas possibles:
+    int choice = 0;
+    cout << "Entrez votre mode de fonctionnement:" << endl << "1- Nouveau" << endl << "2- Ouvrir" << endl << "Autre-Quitter"<<endl;
+    cin >> choice;
+    if(choice == 1){
+
+        //On récupère la taille du lab
+        cout << endl <<"SIZE X ? " ;
+        cin >> conf::SIZE_X;
+        cout << endl << "SIZE Y ? ";
+        cin >> conf::SIZE_Y;
+
+        //On crée le lab
+        repr rep(conf::SIZE_X,conf::SIZE_Y);
+
+        //On lance les deux robots
+        //JE SUIS PAS SUR DE CA A CHANGER NORMALEMENT
+        Robot1();
+        Robot2();
+    }else if(choice == 2){
+       //Ici on lit le lab dans le fichier
+       repr rep=load();
+
+       //ICI on appelle la phase d'exploration
+    }
+}
+
+void setArrivalCase(int *arrival_x,int *arrive_y){
+    cout << "X arrivée: "<< endl;
+    cin >> *arrival_x;
+    cout << endl << "Y arrivée: " <<endl;
+    cin >> *arrive_y;
+}
 
 int main(int argc, char *argv[])
 {

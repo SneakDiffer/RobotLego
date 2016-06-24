@@ -42,8 +42,8 @@ struct repr {
 int getIndexWallVisited(int row,int col);
 
 int getIndexAdj(int row,int col);
-void draw(repr maze,Robot robot);
-void drawVisited(repr maze, Robot robot);
+void draw(repr *maze, Robot *robot);
+void drawVisited(repr *maze, Robot *robot);
 
 
 #endif // REPRESENTATION_H

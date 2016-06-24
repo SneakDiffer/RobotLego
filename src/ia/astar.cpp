@@ -190,6 +190,7 @@ void return_ouvert_not_ricochet (Case *courant,int x_goal, int y_goal,repr* repe
             }
         }
     }
+    cout << "Fin ricochet " << endl;
 }
 
 
@@ -779,6 +780,7 @@ int find_path_not_ricochet (int x_dep, int y_dep, int x_goal, int y_goal, repr* 
             return 0;
             break;
         }
+        cout << "retourne ouvert" << endl;
         return_ouvert_not_ricochet (&courant,x_goal,y_goal,reper);
 
         if(ouvert.size() == 0)

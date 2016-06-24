@@ -249,6 +249,7 @@ void aller_droite_tantque_1 (Robot *robot, repr* maze,int direction_scanne,int x
 
 void direction_UP_murs_UP_1 (Robot* robot,repr* maze,int x_begin, int y_begin)
 {
+    int receive;
     aller_droite_tantque_1 (robot,maze,UP,x_begin,y_begin);
 
     if((maze->visited[getIndexWallVisited(robot->x, robot->y)] & UP) == 0)
@@ -271,7 +272,6 @@ void direction_UP_murs_UP_1 (Robot* robot,repr* maze,int x_begin, int y_begin)
     if(((maze->wall[getIndexWallVisited(robot->x, robot->y)] & UP) != 0) && ((maze->visited[getIndexWallVisited(robot->x, robot->y)] & UP) != 0))
     {
          direction_UP_murs_UP_1 (robot,maze,x_begin,y_begin);
-         break;
     }
 
     robot->dir = UP;
@@ -528,6 +528,7 @@ void aller_droite_tantque_2 (Robot *robot, repr* maze,int direction_scanne,int x
 
 void direction_DOWN_murs_DOWN_2 (Robot* robot,repr* maze,int x_begin, int y_begin)
 {
+    int receive;
     aller_droite_tantque_2 (robot,maze,DOWN,x_begin,y_begin);
 
     if((maze->visited[getIndexWallVisited(robot->x, robot->y)] & DOWN) == 0)
@@ -550,7 +551,6 @@ void direction_DOWN_murs_DOWN_2 (Robot* robot,repr* maze,int x_begin, int y_begi
     if(((maze->wall[getIndexWallVisited(robot->x, robot->y)] & DOWN) != 0) && ((maze->visited[getIndexWallVisited(robot->x, robot->y)] & DOWN) != 0))
     {
          direction_DOWN_murs_DOWN_2 (robot,maze,x_begin,  y_begin);
-         break;
     }
 
     robot->dir = DOWN;
@@ -803,6 +803,7 @@ void aller_bas_tantque_3 (Robot *robot, repr* maze,int direction_scanne,int x_be
 
 void direction_RIGHT_murs_RIGHT_3 (Robot* robot,repr* maze,int x_begin, int y_begin)
 {
+    int receive;
     aller_bas_tantque_3 (robot,maze,RIGHT,x_begin,y_begin);
 
     if((maze->visited[getIndexWallVisited(robot->x, robot->y)] & RIGHT) == 0)
@@ -825,7 +826,6 @@ void direction_RIGHT_murs_RIGHT_3 (Robot* robot,repr* maze,int x_begin, int y_be
     if(((maze->wall[getIndexWallVisited(robot->x, robot->y)] & RIGHT) != 0) && ((maze->visited[getIndexWallVisited(robot->x, robot->y)] & RIGHT) != 0))
     {
          direction_RIGHT_murs_RIGHT_3 (robot,maze,x_begin,  y_begin);
-         break;
     }
     robot->dir = RIGHT;
     robot->dir_scan = UP;
@@ -1078,6 +1078,7 @@ void aller_haut_tantque_4 (Robot *robot, repr* maze,int direction_scanne,int x_b
 
 void direction_RIGHT_murs_RIGHT_4 (Robot* robot,repr* maze,int x_begin, int y_begin)
 {
+    int receive;
     aller_haut_tantque_4 (robot,maze,RIGHT,x_begin,y_begin);
 
     if((maze->visited[getIndexWallVisited(robot->x, robot->y)] & RIGHT) == 0)
@@ -1100,7 +1101,6 @@ void direction_RIGHT_murs_RIGHT_4 (Robot* robot,repr* maze,int x_begin, int y_be
     if(((maze->wall[getIndexWallVisited(robot->x, robot->y)] & RIGHT) != 0) && ((maze->visited[getIndexWallVisited(robot->x, robot->y)] & RIGHT) != 0))
     {
          direction_RIGHT_murs_RIGHT_4 (robot,maze,x_begin,  y_begin);
-         break;
     }
 
     robot->dir = RIGHT;
@@ -1356,6 +1356,7 @@ void aller_gauche_tantque_5 (Robot *robot, repr* maze,int direction_scanne,int x
 
 void direction_UP_murs_UP_5 (Robot* robot,repr* maze,int x_begin, int y_begin)
 {
+    int receive;
     aller_gauche_tantque_5(robot,maze,UP,x_begin,y_begin);
 
     if((maze->visited[getIndexWallVisited(robot->x, robot->y)] & UP) == 0)
@@ -1378,7 +1379,6 @@ void direction_UP_murs_UP_5 (Robot* robot,repr* maze,int x_begin, int y_begin)
     if(((maze->wall[getIndexWallVisited(robot->x, robot->y)] & UP) != 0) && ((maze->visited[getIndexWallVisited(robot->x, robot->y)] & UP) != 0))
     {
          direction_UP_murs_UP_5 (robot,maze,x_begin,  y_begin);
-         break;
     }
 
 
@@ -1636,6 +1636,7 @@ void aller_gauche_tantque_6 (Robot *robot, repr* maze,int direction_scanne,int x
 
 void direction_DOWN_murs_DOWN_6 (Robot* robot,repr* maze,int x_begin, int y_begin)
 {
+    int receive;
     aller_gauche_tantque_6(robot,maze,DOWN,x_begin,y_begin);
 
     if((maze->visited[getIndexWallVisited(robot->x, robot->y)] & DOWN) == 0)
@@ -1658,7 +1659,6 @@ void direction_DOWN_murs_DOWN_6 (Robot* robot,repr* maze,int x_begin, int y_begi
     if(((maze->wall[getIndexWallVisited(robot->x, robot->y)] & DOWN) != 0) && ((maze->visited[getIndexWallVisited(robot->x, robot->y)] & DOWN) != 0))
     {
          direction_DOWN_murs_DOWN_6 (robot,maze,x_begin,  y_begin);
-         break;
     }
 
 
@@ -1907,6 +1907,7 @@ void aller_bas_tantque_7 (Robot *robot, repr* maze,int direction_scanne,int x_be
 
 void direction_LEFT_murs_LEFT_7 (Robot* robot,repr* maze,int x_begin, int y_begin)
 {
+    int receive;
     aller_haut_tantque_7(robot,maze,LEFT,x_begin,y_begin);
 
     if((maze->visited[getIndexWallVisited(robot->x, robot->y)] & LEFT) == 0)
@@ -1929,7 +1930,6 @@ void direction_LEFT_murs_LEFT_7 (Robot* robot,repr* maze,int x_begin, int y_begi
     if(((maze->wall[getIndexWallVisited(robot->x, robot->y)] & LEFT) != 0) && ((maze->visited[getIndexWallVisited(robot->x, robot->y)] & LEFT) != 0))
     {
          direction_LEFT_murs_LEFT_7 (robot,maze,x_begin,  y_begin);
-         break;
     }
 
 
@@ -2185,6 +2185,7 @@ void aller_bas_tantque_8 (Robot *robot, repr* maze,int direction_scanne,int x_be
 
 void direction_LEFT_murs_LEFT_8 (Robot* robot,repr* maze,int x_begin, int y_begin)
 {
+    int receive;
     aller_bas_tantque_8 (robot,maze,LEFT,x_begin,y_begin);
 
     if((maze->visited[getIndexWallVisited(robot->x, robot->y)] & LEFT) == 0)
@@ -2207,7 +2208,6 @@ void direction_LEFT_murs_LEFT_8 (Robot* robot,repr* maze,int x_begin, int y_begi
     if(((maze->wall[getIndexWallVisited(robot->x, robot->y)] & LEFT) != 0) && ((maze->visited[getIndexWallVisited(robot->x, robot->y)] & LEFT) != 0))
     {
          direction_LEFT_murs_LEFT_8 (robot,maze,x_begin,  y_begin);
-         break;
     }
 
     robot->dir = LEFT;

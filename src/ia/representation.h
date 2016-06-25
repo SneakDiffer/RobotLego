@@ -44,6 +44,6 @@ int getIndexWallVisited(int row,int col);
 int getIndexAdj(int row,int col);
 void draw(repr *maze, Robot *robot);
 void drawVisited(repr *maze, Robot *robot);
-
+repr LogicalAnd(repr rep1, repr rep2);
 
 #endif // REPRESENTATION_H

@@ -138,3 +138,18 @@ void drawVisited(repr* maze, Robot* robot){
     std::cout << "" << endl;
 
 }
+
+
+repr LogicalAnd(repr rep1, repr rep2){
+    //On crée la nouvelle reprensantation
+    repr newRep(conf::SIZE_X,conf::SIZE_Y);
+    //On renseigne la valeur de wall du nouveau en faisant un & logique
+    for(int i = 0 ; i < (conf::SIZE_X*conf::SIZE_Y) ; i++){
+        //On fait le & logique
+        newRep.wall[i] = rep1.wall[i] & rep2.wall[i];
+        //ON fait le | logique
+        newRep.visited[i] = rep1.visited[i] | rep2.visited[i];
+    }
+    return newRep;
+
+}
